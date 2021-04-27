@@ -18,8 +18,8 @@
           <i class="fas fa-robot"></i>
           Vanilla JavaScript Chat Bot
         </div>
-        <div class="msger-header-options">
-          <span><i class="fas fa-cog"></i></span>
+        <div class="msger-header-options" onclick="window.location.reload();">
+          <span><i class="fas fa-sync-alt"></i></span>
         </div>
       </header>
       <main class="msger-chat">
@@ -72,10 +72,10 @@
             </div>
             <div class="msg-text">
               Nice to meet you, <span class="person-name"></span> ! Pick your favourite games ! <br> <br>
-              <button onclick="selectGames(this, 'Game A'); this.onclick=null;" class="btn mt-2 btn-sm btn-success">Game A</button><br>
-              <button onclick="selectGames(this, 'Game B'); this.onclick=null;" class="btn mt-2 btn-sm btn-success">Game B</button><br>
-              <button onclick="selectGames(this, 'Game C'); this.onclick=null;" class="btn mt-2 btn-sm btn-success">Game C</button><br>
-              <button onclick="selectGames(this, 'Game D'); this.onclick=null;" class="btn mt-2 btn-sm btn-success">Game D</button><br>
+              <button onclick="selectGames(this, 'Game A');" class="btn mt-2 btn-sm btn-success">Game A</button><br>
+              <button onclick="selectGames(this, 'Game B');" class="btn mt-2 btn-sm btn-success">Game B</button><br>
+              <button onclick="selectGames(this, 'Game C');" class="btn mt-2 btn-sm btn-success">Game C</button><br>
+              <button onclick="selectGames(this, 'Game D');" class="btn mt-2 btn-sm btn-success">Game D</button><br>
               <button onclick="sendGames()" class="btn mt-2 btn-sm btn-success" style="background-color: #97deef;">Submit</button>
             </div>
           </div>
@@ -113,21 +113,21 @@
                       <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
                         <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2">
                           <div>
-                            <p draggable="true" ondragend="droppedItem(1, this)" class="mb-0 d-inline-flex align-items-center">
+                            <p draggable="true" class="mb-0 d-inline-flex align-items-center">
                               List Item 1
                             </p>
                           </div>
                         </div>
                         <div class="list-group-item d-flex align-items-center justify-content-between" data-id="3">
                           <div>
-                            <p draggable="true" ondragend="droppedItem(2, this)" class="mb-0 d-inline-flex align-items-center">
+                            <p draggable="true" class="mb-0 d-inline-flex align-items-center">
                               List Item 2
                             </p>
                           </div>
                         </div>
                         <div class="list-group-item d-flex align-items-center justify-content-between" data-id="4" style="">
                           <div>
-                            <p draggable="true" ondragend="droppedItem(3, this)" class="mb-0 d-inline-flex align-items-center">
+                            <p draggable="true" class="mb-0 d-inline-flex align-items-center">
                               List Item 3
                             </p>
                           </div>
@@ -164,9 +164,10 @@
               <div class="msg-info-name"><span class="person-name"></span></div>
             </div>
             <div class="msg-text">
-              I need those products <br>
-              <ol id="items">
-              </ol>
+              I need those products - <br>
+              Ochtend : <div id="OchtendItems"></div> <br>
+              Middag : <div id="MiddagItems"></div> <br>
+              Avond : <div id="AvondItems"></div> <br>
             </div>
           </div>
         </div>

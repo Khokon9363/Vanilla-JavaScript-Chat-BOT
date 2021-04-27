@@ -28,8 +28,13 @@ function sendGender(gender) {
 
 let games = [];
 function selectGames(button, game) {
-  button.style.backgroundColor = '#5eec6f'
-  games.push(game)
+  if (games.includes(game)) {
+    button.style.backgroundColor = '#26a69a'
+    games.splice(games.indexOf(game), 1)
+    return
+  }
+    button.style.backgroundColor = '#5eec6f'
+    games.push(game)
 }
 
 function sendGames() {
@@ -44,41 +49,13 @@ function sendGames() {
   scroll()
 }
 
-let droppedItems = []
-function droppedItem(number, e) {
-
-    if(droppedItems.includes(e.innerText)){}
-    else{
-      if (number == 1) {
-      droppedItems.push(e.innerText)
-      }
-    }
-
-    if(droppedItems.includes(e.innerText)){}
-    else{
-      if (number == 2) {
-      droppedItems.push(e.innerText)
-      }
-    }
-
-    if(droppedItems.includes(e.innerText)){}
-    else{
-      if (number == 3) {
-      droppedItems.push(e.innerText)
-      }
-    }
-}
-
 function sendItems() {
-  let items = document.getElementById('items')
-    let html = ''
-    for (let i = 0; i < droppedItems.length; i++) {
-        html += `<li> ${droppedItems[i]} </li>`
-    }
-    items.innerHTML = html
-    divs[7].style.display = 'flex'
-    divs[8].style.display = 'flex'
-    scroll()
+  document.getElementById('OchtendItems').innerHTML = document.getElementById('sortablelist2').innerText
+  document.getElementById('MiddagItems').innerHTML = document.getElementById('sortablelist3').innerText
+  document.getElementById('AvondItems').innerHTML = document.getElementById('sortablelist4').innerText
+  divs[7].style.display = 'flex'
+  divs[8].style.display = 'flex'
+  scroll()
 }
 
 // scroll
