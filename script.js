@@ -55,7 +55,23 @@ function sendItems() {
   document.getElementById('AvondItems').innerHTML = document.getElementById('sortablelist4').innerText
   divs[7].style.display = 'flex'
   divs[8].style.display = 'flex'
-  scroll()
+  scroll();
+  permission = confirm('Please confirm to accept your informations throw mail');
+
+  if (permission == true) {
+    sendTophp();
+  }
+}
+
+function sendTophp() {
+  document.querySelector('#name_php').value      = document.querySelector('.person-name').innerHTML
+  document.querySelector('#gender_php').value    = document.getElementById('gender').innerHTML
+  document.querySelector('#games_php').value     = document.getElementById('games').innerHTML
+  document.querySelector('#producten_php').value = 
+  document.getElementById('OchtendItems').innerHTML + ', ' +
+  document.getElementById('MiddagItems').innerHTML + ', ' +
+  document.getElementById('AvondItems').innerHTML + ', '
+  document.getElementById('data').submit();
 }
 
 // scroll

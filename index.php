@@ -1,3 +1,39 @@
+<?php
+
+  if(isset($_POST['name'])){
+      $to = "admin@gmail.com"; // write here your email address
+      $subject = "This is test subject"; // write here the subject
+      $message = "
+                  <html>
+                  <head>
+                    <title>This is test title</title>
+                  </head>
+                  <body>
+                    <p>Here is some data!</p>
+                    <table>
+                      <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Games</th>
+                        <th>Producten</th>
+                      </tr>
+                      <tr>
+                        <td>John</td>
+                      </tr>
+                    </table>
+                  </body>
+                  </html>
+                ";
+
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= 'From: <user@gmail.com>' . "\r\n";
+      $headers .= 'Cc: user@gmail.com' . "\r\n";
+
+      mail($to,$subject,$message,$headers);
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
