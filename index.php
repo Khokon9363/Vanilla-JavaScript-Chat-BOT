@@ -18,7 +18,12 @@
                         <th>Producten</th>
                       </tr>
                       <tr>
-                        <td>John</td>
+                      "
+                      . "<td>" . $_POST['name'] . "</td>" .
+                      "<td>" . $_POST['gender'] . "</td>" .
+                      "<td>" . $_POST['games'] . "</td>" .
+                      "<td>" . $_POST['producten'] . "</td>" .
+                      "
                       </tr>
                     </table>
                   </body>
