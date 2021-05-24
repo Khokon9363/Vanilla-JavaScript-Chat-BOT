@@ -42,13 +42,14 @@ function sendName() {
 }
 
 function sendGender(gender) {
-  genderShow = document.getElementById('gender').innerHTML
-  genderShow = gender
+  document.getElementById('gender').innerHTML = gender
   genderNameDiv.style.display = 'flex'
   if (gender == 'Male') {
     askGamesDiv.style.display = 'flex'
+    askColorsDiv.style.display = 'none'
   }else{
     askColorsDiv.style.display = 'flex'
+    askGamesDiv.style.display = 'none'
   }
   scroll()
 }
