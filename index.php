@@ -9,12 +9,13 @@
                     <title>This is test title</title>
                   </head>
                   <body>
-                    <p>Here is some data!</p>
+                    <p>Here is some informative message !</p>
                     <table>
                       <tr>
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Games</th>
+                        <th>Colors</th>
                         <th>Producten</th>
                       </tr>
                       <tr>
@@ -22,6 +23,7 @@
                       . "<td>" . $_POST['name'] . "</td>" .
                       "<td>" . $_POST['gender'] . "</td>" .
                       "<td>" . $_POST['games'] . "</td>" .
+                      "<td>" . $_POST['colors'] . "</td>" .
                       "<td>" . $_POST['producten'] . "</td>" .
                       "
                       </tr>
@@ -35,7 +37,7 @@
       $headers .= 'From: <user@gmail.com>' . "\r\n";
       $headers .= 'Cc: user@gmail.com' . "\r\n";
 
-      mail($to,$subject,$message,$headers);
+      mail($to, $subject, $message, $headers);
   }
 
 ?>
@@ -64,7 +66,7 @@
         </div>
       </header>
       <main class="msger-chat">
-        <div class="msg left-msg">
+        <div class="msg left-msg" id="askNameDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -73,7 +75,7 @@
             <div class="msg-text">Hi, What's your name ?</div>
           </div>
         </div>
-        <div class="msg right-msg">
+        <div class="msg right-msg" id="nameDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/145/145867.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -82,7 +84,7 @@
             <div class="msg-text"><span class="person-name"></span></div>
           </div>
         </div>
-        <div class="msg left-msg">
+        <div class="msg left-msg" id="askGenderDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -96,7 +98,7 @@
             </div>
           </div>
         </div>
-        <div class="msg right-msg">
+        <div class="msg right-msg" id="genderNameDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/145/145867.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -105,7 +107,7 @@
             <div class="msg-text">My gender is <span id="gender"></span></div>
           </div>
         </div>
-        <div class="msg left-msg">
+        <div class="msg left-msg" id="askGamesDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -121,7 +123,23 @@
             </div>
           </div>
         </div>
-        <div class="msg right-msg">
+        <div class="msg left-msg" id="askColorsDiv">
+          <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">BOT</div>
+            </div>
+            <div class="msg-text">
+              Nice to meet you, <span class="person-name"></span> ! Pick your favourite color ! <br> <br>
+              <button onclick="selectColor(this, 'Color A');" class="btn mt-2 btn-sm btn-success">Color A</button><br>
+              <button onclick="selectColor(this, 'Color B');" class="btn mt-2 btn-sm btn-success">Color B</button><br>
+              <button onclick="selectColor(this, 'Color C');" class="btn mt-2 btn-sm btn-success">Color C</button><br>
+              <button onclick="selectColor(this, 'Color D');" class="btn mt-2 btn-sm btn-success">Color D</button><br>
+              <button onclick="sendColor()" class="btn mt-2 btn-sm btn-success" style="background-color: #97deef;">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="msg right-msg" id="gamesDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/145/145867.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -130,7 +148,16 @@
             <div class="msg-text">My favourate games are <span id="games"></span></div>
           </div>
         </div>
-        <div class="msg left-msg">
+        <div class="msg right-msg" id="colorsDiv">
+          <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/145/145867.svg')"></div>
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name"><span class="person-name"></span></div>
+            </div>
+            <div class="msg-text">My favourate colors are <span id="colors"></span></div>
+          </div>
+        </div>
+        <div class="msg left-msg" id="askProductDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -198,7 +225,7 @@
             </div>
           </div>
         </div>
-        <div class="msg right-msg">
+        <div class="msg right-msg" id="productDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/145/145867.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -212,7 +239,7 @@
             </div>
           </div>
         </div>
-        <div class="msg left-msg">
+        <div class="msg left-msg" id="goodByeDiv">
           <div class="msg-img" style="background-image: url('https://image.flaticon.com/icons/svg/327/327779.svg')"></div>
           <div class="msg-bubble">
             <div class="msg-info">
@@ -233,6 +260,7 @@
         <input type="hidden" name="name" id="name_php">
         <input type="hidden" name="gender" id="gender_php">
         <input type="hidden" name="games" id="games_php">
+        <input type="hidden" name="colors" id="colors_php">
         <input type="hidden" name="producten" id="producten_php">
       </form>
     </section>
