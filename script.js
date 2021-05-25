@@ -42,6 +42,13 @@ function sendName() {
 }
 
 function sendGender(gender) {
+  
+  gamesDiv.style.display = 'none'
+  colorsDiv.style.display = 'none'
+  askProductDiv.style.display = 'none'
+  productDiv.style.display = 'none'
+  goodByeDiv.style.display = 'none'
+
   document.getElementById('gender').innerHTML = gender
   genderNameDiv.style.display = 'flex'
   if (gender == 'Male') {
